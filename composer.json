@@ -1,0 +1,89 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "arcanedev/log-viewer": "^8.3.0",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "doctrine/dbal": "^3.7.2",
+        "dompdf/dompdf": "^2.0",
+        "fideloper/proxy": "^4.4.2",
+        "fruitcake/laravel-cors": "^3.0",
+        "guzzlehttp/guzzle": "^6.5.8",
+        "illuminate/filesystem": "^8.42",
+        "intervention/image": "^3.2.3",
+        "itsjavi/bootstrap-colorpicker": "^3.4.0",
+        "ixudra/curl": "^6.22.1",
+        "jcf/geocode": "^1.4.0",
+        "laravel/framework": "^8.0",
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^3.4",
+        "laravelcollective/html": "^6.4",
+        "owen-it/laravel-auditing": "^13.6",
+        "sendgrid/sendgrid": "^8.1",
+        "spatie/geocoder": "^3.15",
+        "stevebauman/location": "^7.1",
+        "usmanhalalit/laracsv": "^2.1",
+        "venturecraft/revisionable": "^1.40",
+        "yajra/laravel-datatables-buttons": "^4.13",
+        "yajra/laravel-datatables-oracle": "^9.21",
+        "zanysoft/laravel-zip": "^2.0.4",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.17",
+        "fzaninotto/faker": "^1.5",
+        "mockery/mockery": "^1.6.7",
+        "nunomaduro/collision": "^5.11",
+        "phpunit/phpunit": "^10.5.5"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "files": [
+            "app/Functions/Airtable.php",
+            "app/Functions/Request.php",
+            "app/Functions/Response.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}
